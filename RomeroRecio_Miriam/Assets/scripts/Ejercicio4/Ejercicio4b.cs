@@ -14,8 +14,7 @@ public class Ejercicio4b : MonoBehaviour
         
         float DesplY = Input.GetAxis("Vertical") * speed;
         
-      
-        transform.Translate(Vector3.up * DesplY * Time.deltaTime);
+       transform.Translate(Vector3.up * DesplY * Time.deltaTime);
         
        
        

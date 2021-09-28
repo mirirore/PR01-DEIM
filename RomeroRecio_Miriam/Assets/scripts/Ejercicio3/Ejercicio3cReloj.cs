@@ -13,43 +13,43 @@ public class Ejercicio3cReloj : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Ponemos los contadores a 0
+       
         segundos = 0;
         minutos = 0;
         horas = 0;
-        //Llamamos a la corrutina que se ejecutará cada segundo
+        
         StartCoroutine("reloj");
     }
 
 
     IEnumerator reloj()
     {
-        //Usamos el for para sumar un segundo en cada ciclo
-        for (; ; segundos++)
+        
+        for (int n=0; ; n++)
         {
-            //Si superamos el minuto
+            segundos++;
+
+            //minutos
             if (segundos > 59)
             {
                 minutos++;
-                segundos = 0; //Ponemos los segundos a 0
+                segundos = 0; 
             }
 
-            //Creamos una variable string que contiene los segundos
-            //Usamos el método ToString, pasando un parámetro
-            string segundosSt = segundos.ToString("D2");
             
-            //Si llegamos a la hora
+            //hora
             if (minutos > 59)
             {
                 horas++;
                 minutos = 0;
             }
 
-            //Variable string con los minutos y horas con 2 dígitos
+            //Variable para que tengan dos dígitos
+            string segundosSt = segundos.ToString("D2");
             string minutesSt = minutos.ToString("D2");
-            string horasSt = horas.ToString();
+            string horasSt = horas.ToString("D2");
 
-            //Creamos el texto final, para mostrar
+            //texto final pantalla
             textoFinal = horasSt + ":" + minutesSt + ":" + segundosSt;
             print(textoFinal);
             yield return new WaitForSeconds(1f);

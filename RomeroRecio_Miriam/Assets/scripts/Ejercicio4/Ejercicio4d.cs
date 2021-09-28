@@ -13,13 +13,10 @@ public class Ejercicio4d : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            print("disparo pulsado");
+            print("disparo");
         }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            print("disparo liberado");
-        }
+        
     }
 }
