@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class Ejercicio4aSingle : MonoBehaviour
+{ 
 
-public class Ejercicio4a : MonoBehaviour
+    bool encendido = false; //por que al empezar está apagado, luego estar encendido es false
 
-{
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,15 +19,23 @@ public class Ejercicio4a : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
 
         {
-            StartCoroutine("contador");
+            if(encendido==false)
+            {
+                StartCoroutine("contador");
+                encendido = true;
+            }
+            else
+            {
+                StopCoroutine("contador");
+                encendido = false;
+            }
+            
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        
 
-        {
-            StopCoroutine("contador");
-        }
     }
+
 
     IEnumerator contador()
     {
@@ -36,8 +44,9 @@ public class Ejercicio4a : MonoBehaviour
         {
             print(n);
             yield return new WaitForSeconds(1f);
-            
+
 
         }
     }
 }
+
